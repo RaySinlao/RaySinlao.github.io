@@ -19,12 +19,12 @@ console.log(text); // Hello, my name is Ray. Welcome to my blog!
 
 ##Newschool
 
-Using the ${} will add the variable to the string. You don't have to create any breaks and your code turns out a lot cleaner.
+Using the ${} will add the variable to the string and use backticks. You don't have to create any breaks and your code turns out a lot cleaner.
 
 {% highlight javascript %}
 
 var name = "Ray";
-var text = "Hello, my name is ${name}. Welcome to my blog!"
+var text = `Hello, my name is ${name}. Welcome to my blog!`
 
 console.log(text); // Hello, my name is Ray. Welcome to my blog!
 
