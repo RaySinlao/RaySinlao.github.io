@@ -14,12 +14,17 @@ var text = "Hello, my name is " + name + ". Welcome to my blog!"
 
 console.log(text); // Hello, my name is Ray. Welcome to my blog!
 
+
+var math = "10 Plus 10 is " + (10 + 10) + " and not " + (10 - 10);
+
+console.log(math); // 10 Plus 10 is 20 and not 0
+
 {% endhighlight %}
 
 
 ##Newschool
 
-Using the ${} will add the variable to the string and use backticks. You don't have to create any breaks and your code turns out a lot cleaner.
+Using the ${} will add the variable to the string or handle math equations. Also, those are backticks and not quotation marks.
 
 {% highlight javascript %}
 
@@ -27,5 +32,10 @@ var name = "Ray";
 var text = `Hello, my name is ${name}. Welcome to my blog!`
 
 console.log(text); // Hello, my name is Ray. Welcome to my blog!
+
+
+var math = `10 Plus 10 is ${ 10 + 10 } and not ${ 10 - 10 }`;
+
+console.log(math); // 10 Plus 10 is 20 and not 0
 
 {% endhighlight %}
