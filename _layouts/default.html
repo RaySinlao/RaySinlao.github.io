@@ -5,9 +5,9 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <title>Raysinlao.GitHub.io by RaySinlao</title>
-
     <link rel="stylesheet" href="/stylesheets/styles.css">
     <link rel="stylesheet" href="/stylesheets/github-light.css">
+    <link rel="stylesheet" href="/stylesheets/syntax.css">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <!--[if lt IE 9]>
       <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -18,22 +18,26 @@
     <div class="wrapper">
         <header>
             <h1>Ray Sinlao</h1>
-            <p>Javascript Developer</p>
-            <p class="view"><a href="https://github.com/RaySinlao">View My GitHub Profile</a></p>
+            <p>Web Developer</p>
             <h2>Links:</h2>
+            <ul>
+                <li><a href="https://github.com/RaySinlao">Github</a></li>
+                <li><a href="https://twitter.com/raysinlao">Twitter</a></li>
+                <li><a href="https://linkedin.com/in/raysinlao">LinkedIn</a></li>
+            </ul>
+<!--             <h2>Links:</h2>
             <nav role="navigation">
                 <ul>
                     <li><a href="/">Home</a></li>
                     <li><a href="/blogs/">Blog</a></li>
                 </ul>
-            </nav>
-            <h2>Blogs:</h2>    
+            </nav> -->
+            <h2>Blogs:</h2>
             <ul>
                 {% for post in site.posts %}
-                    <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+                <li><a href="{{ post.url }}">{{ post.title }}</a></li>
                 {% endfor %}
             </ul>
-            
         </header>
         <section>
             {{content}}
@@ -42,7 +46,6 @@
         </footer>
     </div>
     <script src="/javascripts/scale.fix.js"></script>
-
 </body>
 
 </html>
