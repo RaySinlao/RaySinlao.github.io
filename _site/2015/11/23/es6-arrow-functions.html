@@ -1,0 +1,153 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Raysinlao.GitHub.io by RaySinlao</title>
+    <link rel="stylesheet" href="/stylesheets/styles.css">
+    <link rel="stylesheet" href="/stylesheets/github-light.css">
+    <link rel="stylesheet" href="/stylesheets/syntax.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+      <![endif]-->
+</head>
+
+<body>
+    <div class="wrapper">
+        <header>
+            <h1>Ray Sinlao</h1>
+            <p>Web Developer</p>
+            <h2>Links:</h2>
+            <ul>
+                <li><a href="https://github.com/RaySinlao">Github</a></li>
+                <li><a href="https://twitter.com/raysinlao">Twitter</a></li>
+                <li><a href="https://linkedin.com/in/raysinlao">LinkedIn</a></li>
+            </ul>
+<!--             <h2>Links:</h2>
+            <nav role="navigation">
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/blogs/">Blog</a></li>
+                </ul>
+            </nav> -->
+            <h2>Blogs:</h2>
+            <ul>
+                
+                <li><a href="/2015/11/23/es6-arrow-functions.html">ES6 - Arrow Functions</a></li>
+                
+                <li><a href="/2015/11/18/es6-template-string.html">ES6 - Template Strings</a></li>
+                
+                <li><a href="/2015/11/18/es6-modules.html">ES6 - Modules</a></li>
+                
+            </ul>
+        </header>
+        <section>
+            <h2 class="content">ES6 - Arrow Functions</h2>
+<p>Things that I learned about the Javascript arrow functions are that they: </p>
+
+<ul>
+  <li>Create shorter functions </li>
+  <li>Create anonymous functions unless you set them to a var</li>
+  <li>Use a ‘lexical this’ where each function defines it’s own ‘this’ context
+<!--- Can't be used as constructor functions where you use the keyword 'new'--></li>
+</ul>
+
+<p>I’ll go over each of these things. In really really light detail. </p>
+
+<hr />
+
+<h2 id="creates-shorter-functions">Creates Shorter Functions</h2>
+
+<p>You can skip using the parenthesis () and the brackets {}</p>
+
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">param</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">param</span><span class="p">)</span></code></pre></div>
+
+<p>ES5 translation</p>
+
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">param</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">param</span><span class="p">);</span>
+<span class="p">});</span></code></pre></div>
+
+<hr />
+
+<p>You could also add more parameters by wrapping the params parenthesis</p>
+
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="p">(</span><span class="nx">param1</span><span class="p">,</span> <span class="nx">param2</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">param1</span><span class="p">,</span> <span class="nx">param2</span><span class="p">)</span></code></pre></div>
+
+<p>ES5 Translation</p>
+
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">param1</span><span class="p">,</span> <span class="nx">param2</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">param1</span><span class="p">,</span> <span class="nx">param2</span><span class="p">);</span>
+<span class="p">});</span></code></pre></div>
+
+<hr />
+
+<p>In this example I’m wrapping the returned object in parenthesis</p>
+
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">x</span> <span class="o">=&gt;</span> <span class="p">({</span><span class="nx">name</span><span class="o">:</span> <span class="nx">x</span><span class="p">,</span> <span class="nx">age</span><span class="o">:</span> <span class="mi">29</span><span class="p">});</span></code></pre></div>
+
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">x</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="p">{</span> <span class="nx">name</span><span class="o">:</span> <span class="nx">x</span><span class="p">,</span> <span class="nx">age</span><span class="o">:</span> <span class="mi">29</span> <span class="p">};</span>
+<span class="p">});</span></code></pre></div>
+
+<h2 id="creates-anonymous-functions">Creates Anonymous Functions</h2>
+
+<p>When I write JS I make heavy usage of declared functions and that was one of the first things that confused me about the arrow functions. If you noticed in the examples above they were all self executing anonymous functions. </p>
+
+<p>You can create a named function expression by declaring the arrow function as a variable. (There are benefits to using named function expressions https://kangax.github.io/nfe/)</p>
+
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">saySomething</span> <span class="o">=</span> <span class="nx">param1</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">param1</span><span class="p">)</span></code></pre></div>
+
+<p>ES5 Translation</p>
+
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">saySomething</span> <span class="o">=</span> <span class="kd">function</span> <span class="nx">saySomething</span><span class="p">(</span><span class="nx">param1</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">param1</span><span class="p">);</span>
+<span class="p">};</span></code></pre></div>
+
+<hr />
+
+<h2 id="lexical-this">Lexical This</h2>
+
+<blockquote>
+  <p>Lexical scoping (sometimes known as static scoping ) is a convention used with many programming languages that sets the scope (range of functionality) of a variable so that it may only be called (referenced) from within the block of code in which it is defined.</p>
+</blockquote>
+
+<p>The arrow function creates a lexical this where this will always refer to the origin function. In this example the Person is aging in increments of 1, every second. If you create a new instance of person and console.log ‘p.age’ it will return the value of the age depending on how many seconds passed. </p>
+
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">function</span> <span class="nx">Person</span><span class="p">(){</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">age</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+  <span class="nx">setInterval</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">age</span><span class="o">++</span><span class="p">;</span> 
+  <span class="p">},</span> <span class="mi">1000</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kd">var</span> <span class="nx">p</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Person</span><span class="p">();</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">p</span><span class="p">.</span><span class="nx">age</span><span class="p">)</span> <span class="c1">// after 5 seconds this will say 5</span></code></pre></div>
+
+<p>Without using the arrow function ‘this’ will refer to the new instance’s age. So every time you console.log ‘p.age’ it will respond with 0 because ‘this’ is referring to ‘p’ and not ‘Person’. (I definitely have to run this through someone else to know if I am correct)</p>
+
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">function</span> <span class="nx">Person</span><span class="p">(){</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">age</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+  <span class="nx">setInterval</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">age</span><span class="o">++</span><span class="p">;</span> 
+  <span class="p">},</span> <span class="mi">1000</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kd">var</span> <span class="nx">p</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Person</span><span class="p">();</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">p</span><span class="p">.</span><span class="nx">age</span><span class="p">)</span> <span class="c1">// after 5 seconds this will say 0</span></code></pre></div>
+
+
+        </section>
+        <footer>
+        </footer>
+    </div>
+    <script src="/javascripts/scale.fix.js"></script>
+</body>
+
+</html>

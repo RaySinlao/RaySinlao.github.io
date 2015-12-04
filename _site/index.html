@@ -35,6 +35,8 @@
             <h2>Blogs:</h2>
             <ul>
                 
+                <li><a href="/2015/11/23/es6-arrow-functions.html">ES6 - Arrow Functions</a></li>
+                
                 <li><a href="/2015/11/18/es6-template-string.html">ES6 - Template Strings</a></li>
                 
                 <li><a href="/2015/11/18/es6-modules.html">ES6 - Modules</a></li>
@@ -44,109 +46,6 @@
         <section>
             <h1>Welcome.</h1>
 <p>This blog is just to help me learn stuff, rant about stuff, and show off stuff from my portfolio.</p>
-
-<!-- <div>
-   	
-
-	  <a href="/2015/11/18/es6-template-string.html">ES6 - Template Strings</a>
-	  <p>Template strings make your code a lot more manageable when creating strings that have changing variables. </p>
-
-<h2 id="oldschool">Oldschool</h2>
-
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">name</span> <span class="o">=</span> <span class="s2">&quot;Ray&quot;</span><span class="p">;</span>
-<span class="kd">var</span> <span class="nx">text</span> <span class="o">=</span> <span class="s2">&quot;Hello, my name is &quot;</span> <span class="o">+</span> <span class="nx">name</span> <span class="o">+</span> <span class="s2">&quot;. Welcome to my blog!&quot;</span>
-
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">text</span><span class="p">);</span> <span class="c1">// Hello, my name is Ray. Welcome to my blog!</span>
-
-
-<span class="kd">var</span> <span class="nx">math</span> <span class="o">=</span> <span class="s2">&quot;10 Plus 10 is &quot;</span> <span class="o">+</span> <span class="p">(</span><span class="mi">10</span> <span class="o">+</span> <span class="mi">10</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; and not &quot;</span> <span class="o">+</span> <span class="p">(</span><span class="mi">10</span> <span class="o">-</span> <span class="mi">10</span><span class="p">);</span>
-
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">math</span><span class="p">);</span> <span class="c1">// 10 Plus 10 is 20 and not 0</span></code></pre></div>
-
-<h2 id="newschool">Newschool</h2>
-
-<p>Using the ${} will add the variable to the string or handle math equations. Also, those are backticks and not quotation marks.</p>
-
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">name</span> <span class="o">=</span> <span class="s2">&quot;Ray&quot;</span><span class="p">;</span>
-<span class="kd">var</span> <span class="nx">text</span> <span class="o">=</span> <span class="err">`</span><span class="nx">Hello</span><span class="p">,</span> <span class="nx">my</span> <span class="nx">name</span> <span class="nx">is</span> <span class="nx">$</span><span class="p">{</span><span class="nx">name</span><span class="p">}.</span> <span class="nx">Welcome</span> <span class="nx">to</span> <span class="nx">my</span> <span class="nx">blog</span><span class="o">!</span><span class="err">`</span>
-
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">text</span><span class="p">);</span> <span class="c1">// Hello, my name is Ray. Welcome to my blog!</span>
-
-
-<span class="kd">var</span> <span class="nx">math</span> <span class="o">=</span> <span class="err">`</span><span class="mi">10</span> <span class="nx">Plus</span> <span class="mi">10</span> <span class="nx">is</span> <span class="nx">$</span><span class="p">{</span> <span class="mi">10</span> <span class="o">+</span> <span class="mi">10</span> <span class="p">}</span> <span class="nx">and</span> <span class="nx">not</span> <span class="nx">$</span><span class="p">{</span> <span class="mi">10</span> <span class="o">-</span> <span class="mi">10</span> <span class="p">}</span><span class="err">`</span><span class="p">;</span>
-
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">math</span><span class="p">);</span> <span class="c1">// 10 Plus 10 is 20 and not 0</span></code></pre></div>
-
-	  
-   	
-
-	  <a href="/2015/11/18/es6-modules.html">ES6 - Modules</a>
-	  <h2 id="oldschool">Oldschool</h2>
-
-<p>This is how I usually create modules in Node, which uses the CommonJS implementation. </p>
-
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// lib.js</span>
-<span class="kr">export</span><span class="p">.</span><span class="nx">mult</span> <span class="o">=</span> <span class="kd">function</span> <span class="nx">mult</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">return</span> <span class="nx">x</span> <span class="o">*</span> <span class="nx">y</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="kr">export</span><span class="p">.</span><span class="nx">div</span> <span class="o">=</span> <span class="kd">function</span> <span class="nx">div</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">return</span> <span class="nx">x</span> <span class="o">/</span> <span class="nx">y</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="c1">// -- or --</span>
-
-<span class="c1">// I usually organize my code this way</span>
-
-<span class="c1">// lib.js</span>
-<span class="kd">function</span> <span class="nx">mult</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">return</span> <span class="nx">x</span> <span class="o">*</span> <span class="nx">y</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="kd">function</span> <span class="nx">div</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">return</span> <span class="nx">x</span> <span class="o">/</span> <span class="nx">y</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="nx">mult</span><span class="o">:</span> <span class="nx">mult</span><span class="p">,</span>
-  <span class="nx">div</span><span class="o">:</span> <span class="nx">div</span>
-<span class="p">}</span></code></pre></div>
-
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// app.js</span>
-<span class="kd">var</span> <span class="nx">lib</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;lib&#39;</span><span class="p">);</span>
-
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">lib</span><span class="p">.</span><span class="nx">mult</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span> <span class="c1">// 4</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">lib</span><span class="p">.</span><span class="nx">div</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span> <span class="c1">// 1</span></code></pre></div>
-
-<h2 id="newschool">Newschool</h2>
-
-<p>ES6 is very similar. All you have to do is prefix each methods with the keyword ‘export’</p>
-
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// lib.js</span>
-<span class="kr">export</span> <span class="kd">function</span> <span class="nx">mult</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">return</span> <span class="nx">x</span> <span class="o">*</span> <span class="nx">y</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="kr">export</span> <span class="kd">function</span> <span class="nx">div</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">return</span> <span class="nx">x</span> <span class="o">/</span> <span class="nx">y</span><span class="p">;</span>
-<span class="p">}</span></code></pre></div>
-
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// app.js</span>
-<span class="kr">import</span> <span class="p">{</span> <span class="nx">mult</span><span class="p">,</span> <span class="nx">div</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;lib&#39;</span><span class="p">;</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">mult</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">));</span> <span class="c1">// 4</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">div</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">));</span> <span class="c1">// 1</span></code></pre></div>
-
-<p>Alternate way to specifying named exports;</p>
-
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// app.js</span>
-<span class="kr">import</span> <span class="o">*</span> <span class="nx">as</span> <span class="nx">lib</span> <span class="nx">from</span> <span class="err">‘</span><span class="nx">lib</span><span class="err">’</span><span class="p">;</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">lib</span><span class="p">.</span><span class="nx">mult</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">));</span> <span class="c1">// 4</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">lib</span><span class="p">.</span><span class="nx">div</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">));</span> <span class="c1">// 1</span></code></pre></div>
-
-
-	  
-  
-</ul> -->
         </section>
         <footer>
         </footer>
