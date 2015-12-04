@@ -7,17 +7,17 @@ title: ES6 - Arrow Functions
 Things that I learned about the Javascript arrow functions are that they: 
 
 - Create shorter functions 
-- Create anonymous functions unless you set them to a var
-- Use a 'lexical this' where each function defines it's own 'this' context
+- Create anonymous functions unless you set them to a `var`
+- Use a `lexical this` where each function defines it's own `this` context
 <!--- Can't be used as constructor functions where you use the keyword 'new'-->
 
 I'll go over each of these things. In really really light detail. 
 
 <hr>
 
-##Creates Shorter Functions 
+##Create Shorter Functions 
 
-You can skip using the parenthesis () and the brackets {}
+For basic functions, you can skip using the `()` and `{}`.
 {% highlight javascript %}
 
 param => console.log(param)
@@ -36,7 +36,7 @@ ES5 translation
 
 <hr>
 
-You could also add more parameters by wrapping the params parenthesis
+You could also add more parameters by wrapping the params in parenthesis.
 
 
 {% highlight javascript %}
@@ -57,7 +57,7 @@ ES5 Translation
 
 <hr>
 
-In this example I'm wrapping the returned object in parenthesis
+In this example I'm wrapping the returned object in parenthesis.
 
 {% highlight javascript %}
 
@@ -74,9 +74,9 @@ x => ({name: x, age: 29});
 
 {% endhighlight %}
 
-##Creates Anonymous Functions
+##Create Anonymous Functions
 
-When I write JS I make heavy usage of declared functions and that was one of the first things that confused me about the arrow functions. If you noticed in the examples above they were all self executing anonymous functions. 
+When I write ES5 I commonly use declared functions. One of the first things that confused me about the arrow functions is that it creates an anonymous function. If you noticed in the examples above they were all self executing anonymous functions. 
 
 You can create a named function expression by declaring the arrow function as a variable. (There are benefits to using named function expressions https://kangax.github.io/nfe/)
 
@@ -103,7 +103,7 @@ var saySomething = function saySomething(param1) {
 
 >Lexical scoping (sometimes known as static scoping ) is a convention used with many programming languages that sets the scope (range of functionality) of a variable so that it may only be called (referenced) from within the block of code in which it is defined.
 
-The arrow function creates a lexical this where this will always refer to the origin function. In this example the Person is aging in increments of 1, every second. If you create a new instance of person and console.log 'p.age' it will return the value of the age depending on how many seconds passed. 
+The arrow function creates a `lexical this` where `this` will always refer to the original function. In this example `Person` is aging in increments of `1`, every second. If you create a new instance of Person and console.log `p.age` it will return the value of the age depending on how many seconds passed. 
 
 {% highlight javascript %}
 
@@ -121,7 +121,7 @@ console.log(p.age) // after 5 seconds this will say 5
 
 {% endhighlight %}
 
-Without using the arrow function 'this' will refer to the new instance's age. So every time you console.log 'p.age' it will respond with 0 because 'this' is referring to 'p' and not 'Person'. (I definitely have to run this through someone else to know if I am correct)
+Without using the arrow function `this` will refer to the new instance's age. So every time you console.log `p.age` it will respond with 0 because `this` is referring to `p` and not `Person`. (I definitely have to run this through someone else lol)
 
 
 {% highlight javascript %}
